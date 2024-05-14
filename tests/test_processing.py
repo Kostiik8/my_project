@@ -1,4 +1,4 @@
-from news_feature.processing import filter_operations_list, sort_operations_list
+from src.processing import filter_operations_list, sort_operations_list
 
 
 def test_filter_operations_list(zero_list):

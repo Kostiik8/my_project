@@ -32,3 +32,8 @@ def uncorrect_symbols():
 @pytest.fixture
 def input_date():
     return "2018-07-11T02:26:18.671407"
+
+
+@pytest.fixture
+def zero_list_for_generator():
+    return []

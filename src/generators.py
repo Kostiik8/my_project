@@ -92,22 +92,10 @@ def filter_by_currency(transactions: list[dict[str, Any]], currency: str) -> Gen
             yield transaction
 
 
-usd_transactions = filter_by_currency(transactions, "USD")
-
-for _ in range(2):
-    print(next(usd_transactions)["id"])
-
-
 def transaction_descriptions(transactions: list[dict[str, Any]]) -> Generator[Any, Any, Any]:
     """Функция принимает список словарей и выводит по запросу информацию о переводе"""
     for transaction in transactions:
         yield transaction["description"]
-
-
-descriptions = transaction_descriptions(transactions)
-
-for _ in range(5):
-    print(next(descriptions))
 
 
 def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
@@ -118,7 +106,3 @@ def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
         number_card = f"{number:016d}".replace(" ", "")
         format_number_card = " ".join([number_card[i:i+4] for i in range(0, len(number_card), 4)])
         yield format_number_card
-
-
-for card_number in card_number_generator(1, 5):
-    print(card_number)

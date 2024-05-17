@@ -1,3 +1,5 @@
 .idea/
 .DS_Store
-tests/
+tests/__pycache__/__init__.cpython-312.pyc
+news_feature/__pycache__/__init__.cpython-312.pyc
+__pycache__

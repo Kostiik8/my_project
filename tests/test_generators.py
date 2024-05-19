@@ -1,5 +1,6 @@
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator, transactions
 import pytest
+
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions, transactions
 
 
 def test_empty_transactions(zero_list_for_generator):

@@ -1,42 +1,36 @@
-from typing import Union
 from src.decorators import log
 
 
-@log(filename="../mylog.txt")
-def my_function(x: int, y: int) -> int:
-    """Функция складывает числа"""
-    return x + y
+def test_log_console(capsys):
+    @log()
+    def example_function(x, y):
+        return x + y
+
+    result = example_function(5, 100)
+    captured = capsys.readouterr()
+
+    assert captured.out == "example_function ok\n"
+    assert result == 105
 
 
-my_function(1, 2)
+def test_log_console_bad(capsys):
+    @log()
+    def my_function_not_file_with_error(x, y):
+        return x / y
+
+    my_function_not_file_with_error(3, 0)
+    captured = capsys.readouterr()
+
+    assert captured.out == "my_function_not_file_with_error error: division by zero. Inputs: (3, 0), {}\n"
 
 
-@log(filename="../mylog.txt")
-def my_error_function(x:int, y:int) -> Union[int, float, None]:
-    """Функция делит числа одно на другое с ошибкой"""
-    return x / y
+def test_log_file_with_mistakes():
+    @log(filename="mylog.txt")
+    def my_error_function(x, y):
+        return x / y
 
+    with open("mylog.txt", "rt") as file:
+        for line in file:
+            log_string = line
 
-my_error_function(0, 2)
-
-
-@log()
-def my_function_not_file(x:int, y:int) -> Union[int, float, None]:
-    """Функция делит числа одно на другое
-       с ошибкой и выводит в консоль
-    """
-    return x / y
-
-
-my_function_not_file(0, 3)
-
-
-@log()
-def my_function_not_file_with_error(x:int, y:int) -> Union[int, float, None]:
-    """Функция делит числа одно на другое
-           без вывода в файл
-        """
-    return x / y
-
-
-my_function_not_file_with_error(0, 3)
+    assert log_string == "my_error_function error: division by zero. Inputs: (5, 0), {}\n"

@@ -1,7 +1,8 @@
+import pytest
+
 from src.mask_card_1 import card_numbers
 from src.mask_card_2 import score_numbers
-from src.widget import information, convert_date
-import pytest
+from src.widget import convert_date, information
 
 
 @pytest.mark.parametrize('user_input, expected_output', [

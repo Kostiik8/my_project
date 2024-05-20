@@ -4,4 +4,5 @@ tests/__pycache__/__init__.cpython-312.pyc
 news_feature/__pycache__/__init__.cpython-312.pyc
 src/__pycache__/processing.cpython-312.pyc
 src/__pycache__/generators.cpython-312.pyc
+src/__pycache__/widget.cpython-312.pyc
 __pycache__

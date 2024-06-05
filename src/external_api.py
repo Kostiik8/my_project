@@ -59,4 +59,4 @@ if __name__ == '__main__':
                 print(f"Сумма сделки в рублях: {amount_in_rub}")
         except (TypeError, KeyError) as e:
             print(f"Ошибка обработки транзакции: {e}")
-        time.sleep(2)
+        time.sleep(1)

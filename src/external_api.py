@@ -13,9 +13,8 @@ API_KEY = os.getenv("API_KEY")
 def get_exchange_rate(from_currency: str, to_currency: str) -> Any:
     """Функция делает API запрос для получения актуальных данных о валюте"""
     url = f"https://api.apilayer.com/exchangerates_data/convert?to={to_currency}&from={from_currency}"
-    headers = {
-        "apikey": API_KEY
-    }
+    headers = {"apikey": API_KEY}
+
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         data = response.json()

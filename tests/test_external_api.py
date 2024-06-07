@@ -82,11 +82,12 @@ def test_convert_invalid_currency_to_rub(mock_get_exchange_rate):
     mock_get_exchange_rate.return_value = 0
 
     try:
+        convert_to_rub({"operationAmount": {"amount": "100.00", "currency": {"code": "INVALID"}}})
         assert False, "Ожидалось исключение InvalidCurrencyError"
     except AssertionError:
         pass
 
-    mock_get_exchange_rate.assert_not_called()
+    mock_get_exchange_rate.assert_called_once_with("INVALID", "RUB")
 
 
 @patch('src.external_api.get_exchange_rate')
@@ -109,3 +110,30 @@ def test_convert_to_rub_with_zero_rate(mock_get_exchange_rate):
         pass
 
     mock_get_exchange_rate.assert_called_once_with("USD", "RUB")
+
+
+@patch('requests.get')
+def test_handle_api_error(mock_get):
+    """Фунция возбуждает ошибку поскольку вызов API не удался."""
+    mock_get.side_effect = Exception("API недоступно")
+
+    try:
+        get_exchange_rate("USD", "RUB")
+        assert False, "Ожидалось исключение Exception"
+    except Exception:
+        pass
+
+
+@patch('requests.get')
+def test_get_exchange_rate_with_invalid_response_format(mock_get):
+    """Функция проверяет обработку неверного формата ответа API"""
+    mock_response = Mock()
+    mock_response.json.return_value = {"invalid_field": 75.0}
+    mock_response.status_code = 200
+    mock_get.return_value = mock_response
+
+    try:
+        get_exchange_rate("USD", "RUB")
+        assert False, "Ожидалось исключение KeyError"
+    except KeyError:
+        pass

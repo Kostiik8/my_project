@@ -1,22 +1,38 @@
 import json
 import os
+import logging
 from typing import Any
+
+
+logger = logging.getLogger('utils')
+logger.setLevel(logging.INFO)
+file_handler = logging.FileHandler('..//logs/utils.log')
+file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
 
 
 def read_json_transactions(path: str) -> Any:
     """Функция загружает данные из файла в формате Json"""
     if not os.path.exists(path):
-        print("Файл не найден.")
+        logger.info("Файл не найден.")
         return []
 
     try:
+        logger.info('Открываем json файл')
         with open(path) as file:
             try:
                 transactions = json.load(file)
+                logger.info('Проверка содержимого в файле')
                 return transactions
             except json.JSONDecodeError:
-                print("Ошибка при декодировании JSON.")
+                logger.error("Ошибка при декодировании JSON.")
                 return []
     except Exception as e:
-        print(f"Произошла ошибка при чтении файла: {e}")
+        logger.error(f"Произошла ошибка при чтении файла: {e}")
         return []
+
+
+if __name__ == '__main__':
+    transactions_path = '../data/operations.json'
+    transactions = read_json_transactions(transactions_path)

@@ -6,7 +6,7 @@ from typing import Any
 
 logger = logging.getLogger('utils')
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('..//logs/utils.log')
+file_handler = logging.FileHandler('..//logs/utils.log', mode='w')
 file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -31,8 +31,3 @@ def read_json_transactions(path: str) -> Any:
     except Exception as e:
         logger.error(f"Произошла ошибка при чтении файла: {e}")
         return []
-
-
-if __name__ == '__main__':
-    transactions_path = '../data/operations.json'
-    transactions = read_json_transactions(transactions_path)

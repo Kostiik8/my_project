@@ -68,3 +68,49 @@ my_function ok
 my_error_function error: division by zero. Inputs: (5, 0), {}
 my_function ok
 my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}
+my_function ok
+my_error_function error: division by zero. Inputs: (5, 0), {}

@@ -1,7 +1,6 @@
 import pytest
 
-from src.mask_card_1 import card_numbers
-from src.mask_card_2 import score_numbers
+from src.masks import score_numbers, card_numbers
 from src.widget import convert_date, information
 
 

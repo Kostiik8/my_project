@@ -4,6 +4,7 @@ from typing import Any
 
 import requests
 from dotenv import load_dotenv
+
 from src.utils import read_json_transactions
 
 load_dotenv()

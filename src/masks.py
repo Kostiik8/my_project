@@ -1,13 +1,8 @@
 from typing import Any, Union
-import logging
 
+from src.logger import setup_logging
 
-logger = logging.getLogger('masks')
-logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('..//logs/masks.log', mode='w')
-file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(file_formatter)
-logger.addHandler(file_handler)
+logger = setup_logging('masks', 'logs/masks.log')
 
 
 def card_numbers(user_input: Any) -> str:
@@ -39,7 +34,3 @@ def score_numbers(user_input: Union[str]) -> str:
     result = "*" * 2 + user_input[-4:]
     logger.info('Выводим замаскированный результат')
     return result
-
-
-if __name__ == '__main__':
-    print()

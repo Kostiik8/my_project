@@ -6,7 +6,7 @@ def test_filter_operations_list(zero_list):
 
 
 def test_find_key_value(item_in_list):
-    assert filter_operations_list(item_in_list, 'value') == item_in_list
+    assert filter_operations_list(item_in_list, "value") == item_in_list
 
 
 def test_zero_dict(zero_list_func_2):

@@ -46,15 +46,15 @@ def test_filter_by_currency_zero_string(zero_list_for_generator):
 
 def test_card_number_generator():
     cards = list(card_number_generator(1, 3))
-    assert cards == ['0000 0000 0000 0001', '0000 0000 0000 0002', '0000 0000 0000 0003']
+    assert cards == ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003"]
 
 
 def test_card_number_generator_start_end_values():
     cards = list(card_number_generator(10, 12))
-    assert cards == ['0000 0000 0000 0010', '0000 0000 0000 0011', '0000 0000 0000 0012']
+    assert cards == ["0000 0000 0000 0010", "0000 0000 0000 0011", "0000 0000 0000 0012"]
 
 
-@pytest.mark.parametrize("special_char", ['@', '%', '!', ':', '#', '$', '^', '&', '*', '-', '.', ','])
+@pytest.mark.parametrize("special_char", ["@", "%", "!", ":", "#", "$", "^", "&", "*", "-", ".", ","])
 def test_no_special_characters_in_card_numbers(special_char):
     card_number = card_number_generator(1, 3)
     assert special_char not in card_number

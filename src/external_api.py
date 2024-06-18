@@ -29,9 +29,12 @@ def convert_to_rub(transaction: dict) -> Any:
     if not isinstance(transaction, dict):
         raise TypeError("Транзакция должна быть словарем")
 
-    if "operationAmount" not in transaction or "amount" not in transaction["operationAmount"] or "currency" not in \
-            transaction["operationAmount"]:
-        raise KeyError('Транзакция должна содержать \'operationAmount\' c \'суммой\' и \'валютой\' ')
+    if (
+        "operationAmount" not in transaction
+        or "amount" not in transaction["operationAmount"]
+        or "currency" not in transaction["operationAmount"]
+    ):
+        raise KeyError("Транзакция должна содержать 'operationAmount' c 'суммой' и 'валютой' ")
 
     amount = transaction["operationAmount"]["amount"]
     currency = transaction["operationAmount"]["currency"]["code"]
@@ -48,8 +51,8 @@ def convert_to_rub(transaction: dict) -> Any:
     return round(float(amount) * exchange_rate, 2)
 
 
-if __name__ == '__main__':
-    transactions_path = '../data/operations.json'
+if __name__ == "__main__":
+    transactions_path = "../data/operations.json"
     transactions = read_json_transactions(transactions_path)
 
     for transaction in transactions:

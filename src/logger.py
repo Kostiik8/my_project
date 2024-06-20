@@ -9,10 +9,10 @@ def setup_logging(name: str, log_file: str, level=logging.DEBUG) -> logging.Logg
     logger = logging.getLogger(name)
     logger.setLevel(level)
 
-    handler = logging.FileHandler(log_file, mode='w')
+    handler = logging.FileHandler(log_file, mode="w")
     handler.setLevel(level)
 
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
     handler.setFormatter(formatter)
 
     logger.addHandler(handler)

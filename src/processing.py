@@ -1,9 +1,9 @@
 from typing import Any, Dict
 
 
-def filter_operations_list(list_of_dicts: list[dict[str, Any]], state_value: Any = 'EXECUTED') -> list[dict[str, Any]]:
+def filter_operations_list(list_of_dicts: list[dict[str, Any]], state_value: Any = "EXECUTED") -> list[dict[str, Any]]:
     """Функция принимает список словарей и возвращает
-       отсортированный по значению список словарей
+    отсортированный по значению список словарей
     """
 
     new_list = []
@@ -15,9 +15,9 @@ def filter_operations_list(list_of_dicts: list[dict[str, Any]], state_value: Any
 
 def sort_operations_list(sort_dictionaries: list[Dict[str, Any]], reverse: bool = True) -> list[Dict[str, Any]]:
     """Функция принимает список словарей и возвращает
-       отсортированный список по убыванию дат
-       список словарей
+    отсортированный список по убыванию дат
+    список словарей
     """
 
-    new_list = sorted(sort_dictionaries, key=lambda x: x['date'], reverse=True)
+    new_list = sorted(sort_dictionaries, key=lambda x: x["date"], reverse=reverse)
     return new_list
